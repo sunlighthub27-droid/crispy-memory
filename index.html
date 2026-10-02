@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บล็อคสคริป</title>
+    <title>Sunlight Hub Obfuscator</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +132,70 @@
 
         .container:hover {
             border-color: rgba(168, 85, 247, 0.45);
+        }
+
+        /* ===== Banner ด้านบน ===== */
+        .banner-box {
+            width: 100%;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            box-shadow: 
+                0 0 25px rgba(168, 85, 247, 0.5),
+                0 0 60px rgba(168, 85, 247, 0.2),
+                inset 0 0 20px rgba(168, 85, 247, 0.1);
+            animation: bannerGlow 3s infinite alternate ease-in-out;
+        }
+
+        .banner-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-box:hover img {
+            transform: scale(1.03);
+        }
+
+        /* แสงวิ่งผ่าน Banner */
+        .banner-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(216, 180, 254, 0.2), 
+                transparent
+            );
+            animation: shine 4s infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes bannerGlow {
+            0% { 
+                box-shadow: 
+                    0 0 25px rgba(168, 85, 247, 0.5),
+                    0 0 60px rgba(168, 85, 247, 0.2);
+            }
+            100% { 
+                box-shadow: 
+                    0 0 35px rgba(168, 85, 247, 0.8),
+                    0 0 90px rgba(168, 85, 247, 0.4);
+            }
         }
 
         /* Header Styling */
@@ -563,6 +627,10 @@
             .container {
                 padding: 20px 15px;
             }
+            .banner-box {
+                border-radius: 10px;
+                margin-bottom: 18px;
+            }
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -589,12 +657,17 @@
 <div class="app-wrapper">
     <div class="container">
         
+        <!-- ✅ Banner ด้านบนสุด (ใช้ลิงก์ Discord) -->
+        <div class="banner-box">
+            <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555511861619859587/file_00000000a708821186b76ee231776632.png?backend=b2&ex=6ac0cacf&is=6abf794f&hm=8a07d6b9811e742ba1b6ee9c0b39d0c19d82186e7ddbe61a47ec73fc589f5da7&" alt="Sunlight Hub Obfuscator Banner" onerror="this.parentElement.style.display='none'">
+        </div>
+        
         <div class="header-box">
             <div class="badge-status">
                 <i class="fa-solid fa-circle"></i> เวอร์ชั่น 1.0 พร้อมใช้งาน
             </div>
-            <h1>เว็บล็อคสคริป</h1>
-            <div class="subtitle">เว็บล็อกสคริปที่ไม่มีใครแกะสคริปต์ได้ 100%</div>
+            <h1>Sunlight Hub Obfuscator</h1>
+            <div class="subtitle">เว็บล็อคสคริปที่ทำให้คนธรรมดาอ่านไม่ออก 100%</div>
         </div>
 
         <div class="features-grid">
@@ -669,7 +742,7 @@
                     <i class="fa-brands fa-tiktok"></i> TikTok: vods.touej
                 </a>
             </div>
-            <a href="https://discord.gg/AjB9WfNsJ" target="_blank" class="discord-btn">
+            <a href="https://discord.gg/yUUz7jWa5" target="_blank" class="discord-btn">
                 <i class="fa-brands fa-discord"></i> Join Discord
             </a>
         </footer>
@@ -833,10 +906,10 @@ function obfuscateLua(code) {
     const v_fn = generateRandomVar(5);
     const v_err = generateRandomVar(4);
 
-    return `-- YouTube: Manowmanaroi
+    return `-- Sunlight Hub Obfuscator
+-- YouTube: Manowmanaroi
 -- TikTok: vods.touej
--- Discord
--- https://discord.gg/AjB9WfNsJ
+-- Discord: https://discord.gg/yUUz7jWa5
 local ${v_hex} = "${hexStr}"
 local ${v_key} = ${key}
 local ${v_str} = ${v_hex}:gsub("..", function(ch)
@@ -863,7 +936,6 @@ function copyResult() {
     navigator.clipboard.writeText(textToCopy).then(() => {
         showToast('คัดลอก Script เรียบร้อยแล้ว!', 'success');
     }).catch(() => {
-        // Fallback method
         const tempTextArea = document.createElement("textarea");
         tempTextArea.value = textToCopy;
         document.body.appendChild(tempTextArea);
@@ -896,4 +968,4 @@ function downloadResult() {
 </script>
 
 </body>
-  </html>
+    </html>
