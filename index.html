@@ -47,7 +47,6 @@
     text-transform: uppercase;
     text-shadow: 0 0 20px rgba(168,85,247,0.5);
   }
-  /* ไอคอนสายฟ้า SVG ที่วาดเอง */
   .bolt-icon {
     width: 28px;
     height: 28px;
@@ -134,7 +133,6 @@
     display: flex; align-items: center; gap: 10px;
   }
 
-  /* ไอคอนเครื่องหมายถูกในกรอบ (วาดจาก SVG) */
   .check-icon {
     width: 22px; height: 22px;
     display: inline-block;
@@ -162,26 +160,14 @@
     display: flex; align-items: center; gap: 8px;
   }
 
-  /* ไอคอนลูกศรคู่ (วาดจาก CSS) */
+  /* ไอคอนลูกศรคู่ (แก้ให้เหลืออันเดียว) */
   .dbl-arrow {
     display: inline-block;
     width: 0; height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 7px solid var(--primary);
-    position: relative;
     margin-right: 4px;
-  }
-  .dbl-arrow::after {
-    content: '';
-    display: block;
-    width: 0; height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 7px solid var(--primary);
-    position: absolute;
-    left: 9px;
-    top: -5px;
   }
 
   .loadstring-code {
@@ -204,7 +190,6 @@
   }
   .copy-btn:hover { background: rgba(168,85,247,0.15); transform: scale(1.02); }
 
-  /* ไอคอนสี่เหลี่ยมซ้อนกัน (วาดจาก CSS) */
   .copy-icon {
     position: relative;
     width: 14px; height: 16px;
@@ -235,8 +220,6 @@
     font-family: 'Courier New', monospace;
     display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
   }
-
-  /* ไอคอนข้าวหลามตัด (วาดจาก CSS) */
   .diamond {
     display: inline-block;
     width: 6px; height: 6px;
@@ -245,18 +228,16 @@
     margin: 0 4px;
   }
 
-  /* ============ Loading / Error / Info ============ */
+  /* ============ Loading / Error ============ */
   .loading {
     text-align: center; color: var(--primary);
     padding: 20px; display: none;
     font-family: 'Courier New', monospace;
     letter-spacing: 1px;
-    display: none;
     align-items: center; justify-content: center; gap: 10px;
   }
   .loading.show { display: flex; }
 
-  /* ไอคอนวงกลมหมุน (วาดจาก CSS) */
   .spinner {
     display: inline-block;
     width: 16px; height: 16px;
@@ -271,12 +252,10 @@
     color: #ff9999; text-align: center;
     padding: 10px; display: none;
     word-break: break-all; font-size: 12px;
-    display: none;
     align-items: center; justify-content: center; gap: 8px;
   }
   .error.show { display: flex; }
 
-  /* ไอคอนกากบาท (วาดจาก CSS) */
   .x-icon {
     position: relative;
     width: 14px; height: 14px;
@@ -293,16 +272,78 @@
   .x-icon::before { transform: translate(-50%, -50%) rotate(45deg); }
   .x-icon::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 
-  .info {
-    color: var(--dim); font-size: 12px;
-    text-align: center; margin-top: 15px;
-    line-height: 1.6; letter-spacing: 0.5px;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+  /* ============ Footer (ผู้สร้าง + Discord) ============ */
+  .footer {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(168,85,247,0.2);
+    text-align: center;
+  }
+  .creator {
+    color: var(--sub);
+    font-size: 13px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .creator::before {
+    content: '◆';
+    color: var(--primary);
+    font-size: 9px;
+  }
+  .creator::after {
+    content: '◆';
+    color: var(--primary);
+    font-size: 9px;
+  }
+  .creator b {
+    color: #e9d5ff;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .discord-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(88,101,242,0.12);
+    border: 1px solid rgba(88,101,242,0.4);
+    border-radius: 8px;
+    color: #8b93f8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+  }
+  .discord-btn:hover {
+    background: rgba(88,101,242,0.25);
+    border-color: #5865F2;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(88,101,242,0.4);
+    transform: translateY(-2px);
+  }
+  /* ไอคอน Discord ขาวดำ */
+  .dc-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+  }
+  .dc-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z'/></svg>") center/contain no-repeat;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z'/></svg>") center/contain no-repeat;
   }
 
   .badge-ok { color: #d8b4fe; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; }
-
-  /* ไอคอนเครื่องหมายถูกเล็ก (วาดจาก CSS) */
   .check-small {
     display: inline-block;
     width: 10px; height: 6px;
@@ -383,10 +424,15 @@
     <div class="stats" id="stats"></div>
   </div>
 
-  <!-- ============ Info ============ -->
-  <div class="info">
-    <span class="diamond"></span>
-    ลิงก์จะฝากไว้ที่ <b>dpaste.com</b> — ใช้กับ Roblox ได้เลย
+  <!-- ============ Footer (ผู้สร้าง + Discord) ============ -->
+  <div class="footer">
+    <div class="creator">
+      ผู้สร้าง <b>areb_81h2</b>
+    </div>
+    <a href="https://discord.gg/AjB9WfNsJ" target="_blank" class="discord-btn">
+      <span class="dc-icon"></span>
+      Join Discord
+    </a>
   </div>
 </div>
 
@@ -485,7 +531,7 @@ function showToast(msg) {
     font-family: 'Courier New', monospace;
     display: flex; align-items: center; gap: 8px;
   `;
-  t.innerHTML = '<span class="check-small" style="border-color:#d8b4fe;display:inline-block;"></span>' + msg;
+  t.innerHTML = '<span class="check-small" style="border-color:#d8b4fe;"></span>' + msg;
   document.body.appendChild(t);
   setTimeout(() => {
     t.style.transition = 'opacity 0.3s';
