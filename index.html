@@ -16,145 +16,86 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Kanit', 'Segoe UI', sans-serif; }
   body {
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--bg); color: var(--text);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 20px;
     background-image: 
       radial-gradient(circle at 20% 20%, rgba(168,85,247,0.15) 0%, transparent 50%),
       radial-gradient(circle at 80% 80%, rgba(107,33,168,0.15) 0%, transparent 50%);
   }
   .app {
-    width: 100%;
-    max-width: 800px;
+    width: 100%; max-width: 800px;
     background: var(--card);
     border: 1px solid rgba(168,85,247,0.3);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 20px; padding: 30px;
     backdrop-filter: blur(20px);
     box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(168,85,247,0.2);
   }
   h1 {
-    text-align: center;
-    font-size: 26px;
+    text-align: center; font-size: 26px;
     background: linear-gradient(180deg, #fff, #d8b4fe);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px;
   }
-  .sub {
-    text-align: center;
-    color: var(--sub);
-    font-size: 13px;
-    margin-bottom: 25px;
-  }
+  .sub { text-align: center; color: var(--sub); font-size: 13px; margin-bottom: 25px; }
   textarea {
-    width: 100%;
-    height: 180px;
+    width: 100%; height: 180px;
     background: rgba(10, 3, 18, 0.85);
     border: 1px solid rgba(168,85,247,0.3);
-    border-radius: 12px;
-    color: var(--primary-light);
+    border-radius: 12px; color: var(--primary-light);
     font-family: 'Courier New', monospace;
-    padding: 15px;
-    font-size: 13px;
-    resize: vertical;
-    outline: none;
-    line-height: 1.5;
+    padding: 15px; font-size: 13px; resize: vertical; outline: none; line-height: 1.5;
   }
   textarea:focus { border-color: var(--primary); box-shadow: 0 0 20px rgba(168,85,247,0.4); }
   .counter { text-align: right; color: var(--dim); font-size: 12px; margin-top: 5px; margin-bottom: 15px; }
   button {
-    width: 100%;
-    padding: 15px;
+    width: 100%; padding: 15px;
     background: linear-gradient(135deg, #4c1d95, #a855f7);
     border: 1px solid rgba(168,85,247,0.8);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 15px;
+    border-radius: 12px; color: #fff; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: 0.3s; margin-bottom: 15px;
   }
   button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(168,85,247,0.5); }
   button:disabled { opacity: 0.5; cursor: not-allowed; }
   .result {
-    display: none;
-    margin-top: 20px;
-    padding: 20px;
+    display: none; margin-top: 20px; padding: 20px;
     background: rgba(10, 3, 18, 0.9);
-    border: 1px solid var(--primary);
-    border-radius: 12px;
+    border: 1px solid var(--primary); border-radius: 12px;
   }
   .result-title {
-    color: var(--primary-light);
-    font-size: 13px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--primary-light); font-size: 13px; margin-bottom: 12px;
+    text-transform: uppercase; display: flex; align-items: center; gap: 8px;
   }
   .link-box {
-    display: flex;
-    gap: 10px;
+    display: flex; gap: 10px;
     background: rgba(0,0,0,0.4);
     border: 1px solid rgba(168,85,247,0.3);
-    border-radius: 8px;
-    padding: 10px 15px;
-    align-items: center;
-    margin-bottom: 12px;
+    border-radius: 8px; padding: 10px 15px;
+    align-items: center; margin-bottom: 12px;
   }
   .link-box input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: var(--primary-light);
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-    outline: none;
-    width: 100%;
+    flex: 1; background: transparent; border: none;
+    color: var(--primary-light); font-family: 'Courier New', monospace;
+    font-size: 12px; outline: none; width: 100%;
   }
   .copy-btn {
-    padding: 8px 14px;
-    background: var(--primary);
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 12px;
-    width: auto;
-    margin: 0;
-    white-space: nowrap;
+    padding: 8px 14px; background: var(--primary);
+    border: none; border-radius: 6px; color: #fff; font-weight: bold;
+    cursor: pointer; font-size: 12px; white-space: nowrap;
   }
   .copy-btn:hover { background: #b975ff; transform: scale(1.05); }
   .loadstring-box {
     background: rgba(0,0,0,0.5);
     border: 1px dashed var(--primary);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
-    position: relative;
+    border-radius: 8px; padding: 12px; margin-bottom: 12px;
   }
   .loadstring-label {
-    color: var(--primary-light);
-    font-size: 11px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
+    color: var(--primary-light); font-size: 11px;
+    margin-bottom: 6px; text-transform: uppercase;
   }
   .loadstring-code {
-    color: #c084fc;
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    word-break: break-all;
-    line-height: 1.5;
+    color: #c084fc; font-family: 'Courier New', monospace;
+    font-size: 11px; word-break: break-all; line-height: 1.5;
   }
   .stats { color: var(--dim); font-size: 12px; margin-top: 10px; text-align: center; }
   .loading { text-align: center; color: var(--primary); padding: 20px; display: none; }
@@ -163,6 +104,17 @@
   .error { color: #ff6b6b; text-align: center; padding: 10px; display: none; word-break: break-all; font-size: 12px; }
   .info { color: var(--dim); font-size: 12px; text-align: center; margin-top: 15px; line-height: 1.6; }
   .badge-ok { color: #4ade80; font-weight: bold; }
+  .preview-box {
+    margin-top: 15px; background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 8px; padding: 12px;
+    max-height: 200px; overflow-y: auto;
+  }
+  .preview-label { color: var(--primary-light); font-size: 11px; margin-bottom: 8px; }
+  .preview-code {
+    color: #c084fc; font-family: 'Courier New', monospace;
+    font-size: 11px; white-space: pre-wrap; word-break: break-all; line-height: 1.4;
+  }
 </style>
 </head>
 <body>
@@ -179,65 +131,68 @@
   </button>
   
   <div class="loading" id="loading">
-    <i>⚙️</i> กำลังฝากสคริปต์...
+    <i>⚙️</i> กำลังฝากสคริปต์ขึ้น GitHub...
   </div>
   
   <div class="error" id="error"></div>
   
   <div class="result" id="result">
-    <div class="result-title">✅ สคริปต์ของคุณพร้อมใช้งาน</div>
+    <div class="result-title">✅ สคริปต์พร้อมใช้งาน</div>
     
-    <!-- Loadstring พร้อมใช้ -->
     <div class="loadstring-box">
       <div class="loadstring-label">🎯 Loadstring สำหรับ Executor</div>
       <div class="loadstring-code" id="loadstringCode"></div>
-      <button class="copy-btn" style="margin-top:8px;width:100%;" onclick="copyLoadstring()">📋 คัดลอก Loadstring ทั้งหมด</button>
+      <button class="copy-btn" style="margin-top:8px;width:100%;padding:10px;" onclick="copyLoadstring()">📋 คัดลอก Loadstring ทั้งหมด</button>
     </div>
     
-    <!-- ลิงก์ Raw -->
     <div class="link-box">
       <input type="text" id="rawUrl" readonly>
       <button class="copy-btn" onclick="copyRaw()">📋 Raw</button>
     </div>
     
-    <!-- ลิงก์หน้าเว็บ -->
-    <div class="link-box">
-      <input type="text" id="shortUrl" readonly>
-      <button class="copy-btn" onclick="copyLink()">📋 Link</button>
-    </div>
-    
     <div class="stats" id="stats"></div>
+    
+    <!-- Preview โค้ด -->
+    <div class="preview-box">
+      <div class="preview-label">👁️ ตัวอย่างโค้ด (เปิดใน Raw เพื่อดูเต็ม)</div>
+      <div class="preview-code" id="previewCode"></div>
+    </div>
   </div>
   
   <div class="info">
-    💡 ลิงก์จะฝากไว้ที่ <b>jsonbin.io</b> — ฟรี ไม่ต้องมี backend เอง
+    💡 ลิงก์จะฝากไว้ที่ <b>GitHub ของคุณเอง</b> — เปิดดูได้ทุกที่ ไม่ต้องมี backend
   </div>
 </div>
 
 <script>
-/* ============================================ */
-/* 🔑 ตั้งค่าตรงนี้ — เอามาจาก jsonbin.io      */
-/* ============================================ */
-const JSONBIN_KEY = "ใส่_API_KEY_ของคุุณ";  // เช่น "$2a$10$abcdefg..."
-const JSONBIN_BIN = "ใส่_BIN_ID_ของคุณ";   // เช่น "65a1b2c3d4e5f6..."
-/* ============================================ */
+/* ================================================= */
+/* 🔑 ตั้งค่าตรงนี้                                   */
+/* ================================================= */
+const GITHUB_TOKEN = "ใส่_GITHUB_TOKEN_ของคุณ";     // ขึ้นต้นด้วย ghp_...
+const GITHUB_USER  = "sunlighthub27-droid";        // ชื่อ user GitHub
+const GITHUB_REPO  = "crispy-memory";              // ชื่อ repo
+const GITHUB_BRANCH = "main";                       // สาขา
+const FOLDER = "scripts";                           // โฟลเดอร์เก็บ .lua
+/* ================================================= */
 
 const $ = id => document.getElementById(id);
 
-// นับตัวอักษร
 $('input').addEventListener('input', () => {
   $('counter').textContent = $('input').value.length.toLocaleString() + ' ตัวอักษร';
 });
 
-// สุ่ม ID สั้น 8 ตัว
 function shortId() {
-  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let id = '';
-  for (let i = 0; i < 8; i++) id += chars[Math.floor(Math.random() * chars.length)];
+  for (let i = 0; i < 10; i++) id += chars[Math.floor(Math.random() * chars.length)];
   return id;
 }
 
-// ย่อสคริปต์
+// แปลง string → base64 (รองรับ Unicode)
+function toBase64(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
 async function shorten() {
   const code = $('input').value.trim();
   
@@ -246,8 +201,8 @@ async function shorten() {
     return;
   }
   
-  if (JSONBIN_KEY.includes('ใส่_') || JSONBIN_BIN.includes('ใส่_')) {
-    alert('⚠️ กรุณาตั้งค่า JSONBIN_KEY และ JSONBIN_BIN ในโค้ดก่อนครับ');
+  if (GITHUB_TOKEN.includes('ใส่_')) {
+    alert('⚠️ กรุณาตั้งค่า GITHUB_TOKEN ในโค้ดก่อนครับ\n\nดูวิธีได้จากที่แชท');
     return;
   }
   
@@ -258,53 +213,44 @@ async function shorten() {
   
   try {
     const id = shortId();
+    const filename = `${FOLDER}/${id}.lua`;
+    const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${filename}`;
     
-    // ดึงข้อมูลเดิม
-    const getRes = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN}/latest`, {
-      headers: { 'X-Master-Key': JSONBIN_KEY }
-    });
-    
-    if (!getRes.ok) throw new Error('โหลดข้อมูลเดิมไม่สำเร็จ');
-    
-    const getData = await getRes.json();
-    const allData = getData.record || {};
-    
-    // เพิ่มข้อมูลใหม่
-    allData[id] = {
-      code: code,
-      created: Date.now()
-    };
-    
-    // บันทึกกลับ
-    const putRes = await fetch(`https://api.jsonbin.io/v3/b/${JSONBIN_BIN}`, {
+    // สร้างไฟล์ใหม่ใน GitHub
+    const response = await fetch(apiUrl, {
       method: 'PUT',
       headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
-        'X-Master-Key': JSONBIN_KEY
+        'Accept': 'application/vnd.github.v3+json'
       },
-      body: JSON.stringify(allData)
+      body: JSON.stringify({
+        message: `Add script ${id}`,
+        content: toBase64(code),
+        branch: GITHUB_BRANCH
+      })
     });
     
-    if (!putRes.ok) {
-      const errText = await putRes.text();
-      throw new Error('บันทึกไม่สำเร็จ: ' + errText);
+    if (!response.ok) {
+      const errData = await response.json();
+      throw new Error(`GitHub API: ${response.status} - ${errData.message || 'Unknown error'}`);
     }
     
-    // สร้างลิงก์ต่างๆ
-    // ใช้ API endpoint ของเราที่จะดึงข้อมูลจาก jsonbin กลับมา
-    const baseUrl = location.origin + location.pathname.replace(/\/[^\/]*$/, '/');
-    const rawUrl = `${baseUrl}raw.html?id=${id}`;
-    const viewUrl = `${baseUrl}?id=${id}`;
-    
-    // สร้าง loadstring
+    // สร้างลิงก์ Raw
+    const rawUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${filename}`;
     const loadstringCode = `loadstring(game:HttpGet("${rawUrl}"))()`;
     
     // แสดงผล
-    $('shortUrl').value = viewUrl;
     $('rawUrl').value = rawUrl;
     $('loadstringCode').textContent = loadstringCode;
+    $('previewCode').textContent = code.length > 500 ? code.substring(0, 500) + '\n\n... (ตัดให้ดูตัวอย่าง)' : code;
     $('stats').innerHTML = `📏 สคริปต์ <b>${code.length.toLocaleString()}</b> ตัวอักษร → ลิงก์ <b>${rawUrl.length}</b> ตัวอักษร <span class="badge-ok">✅ สำเร็จ</span>`;
     $('result').style.display = 'block';
+    
+    // Auto copy loadstring
+    setTimeout(() => {
+      copyToClipboard(loadstringCode, '✅ คัดลอก Loadstring แล้ว!');
+    }, 500);
     
   } catch (err) {
     console.error(err);
@@ -316,12 +262,10 @@ async function shorten() {
   }
 }
 
-// คัดลอกฟังก์ชัน
 function copyToClipboard(text, message) {
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(() => {
-      showToast(message);
-    }).catch(() => fallbackCopy(text, message));
+    navigator.clipboard.writeText(text).then(() => showToast(message))
+    .catch(() => fallbackCopy(text, message));
   } else {
     fallbackCopy(text, message);
   }
@@ -332,12 +276,8 @@ function fallbackCopy(text, message) {
   ta.value = text;
   document.body.appendChild(ta);
   ta.select();
-  try {
-    document.execCommand('copy');
-    showToast(message);
-  } catch (e) {
-    showToast('❌ คัดลอกไม่สำเร็จ');
-  }
+  try { document.execCommand('copy'); showToast(message); }
+  catch (e) { showToast('❌ คัดลอกไม่สำเร็จ'); }
   document.body.removeChild(ta);
 }
 
@@ -349,7 +289,6 @@ function showToast(msg) {
     color: #fff; padding: 12px 20px; border-radius: 8px;
     font-weight: bold; z-index: 9999; font-size: 14px;
     box-shadow: 0 10px 30px rgba(168,85,247,0.5);
-    animation: slideIn 0.3s ease;
   `;
   t.textContent = msg;
   document.body.appendChild(t);
@@ -360,8 +299,7 @@ function showToast(msg) {
   }, 2000);
 }
 
-function copyLink() { copyToClipboard($('shortUrl').value, '✅ คัดลอกลิงก์แล้ว!'); }
-function copyRaw()  { copyToClipboard($('rawUrl').value, '✅ คัดลอก Raw URL แล้ว!'); }
+function copyRaw() { copyToClipboard($('rawUrl').value, '✅ คัดลอก Raw URL แล้ว!'); }
 function copyLoadstring() { copyToClipboard($('loadstringCode').textContent, '✅ คัดลอก Loadstring แล้ว!'); }
 </script>
 
