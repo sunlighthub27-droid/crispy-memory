@@ -49,7 +49,6 @@
             padding: 30px 15px;
             position: relative;
             overflow-x: hidden;
-            transition: background-color 0.5s ease;
         }
 
         #bgCanvas {
@@ -86,10 +85,9 @@
             pointer-events: none;
             opacity: 0.4;
             animation: orbFloat 10s infinite alternate ease-in-out;
-            transition: background 0.5s ease;
         }
         .orb-1 { top: -100px; left: -100px; background: var(--primary); }
-        .orb-2 { bottom: -100px; right: -100px; background: var(--secondary); }
+        .orb-2 { bottom: -100px; right: -100px; background: #4c1d95; }
 
         @keyframes orbFloat {
             0% { transform: translate(0, 0) scale(1); }
@@ -115,25 +113,26 @@
                 0 20px 50px rgba(0, 0, 0, 0.8),
                 0 0 30px rgba(168, 85, 247, 0.15),
                 inset 0 0 15px rgba(168, 85, 247, 0.05);
-            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            transition: border-color 0.3s ease;
         }
 
         .container:hover {
-            border-color: var(--primary);
+            border-color: rgba(168, 85, 247, 0.45);
         }
 
+        /* ===== Banner ทั่วไป ===== */
         .banner-box {
             width: 100%;
             margin-bottom: 25px;
             border-radius: 14px;
             overflow: hidden;
             position: relative;
-            border: 1px solid var(--primary);
+            border: 1px solid rgba(168, 85, 247, 0.5);
             box-shadow: 
-                0 0 25px var(--primary-glow),
-                0 0 60px var(--primary-glow);
+                0 0 25px rgba(168, 85, 247, 0.5),
+                0 0 60px rgba(168, 85, 247, 0.2),
+                inset 0 0 20px rgba(168, 85, 247, 0.1);
             animation: bannerGlow 3s infinite alternate ease-in-out;
-            transition: border-color 0.5s ease;
         }
 
         .banner-box img {
@@ -157,7 +156,7 @@
             background: linear-gradient(
                 90deg, 
                 transparent, 
-                rgba(255, 255, 255, 0.2), 
+                rgba(216, 180, 254, 0.2), 
                 transparent
             );
             animation: shine 4s infinite;
@@ -174,16 +173,17 @@
         @keyframes bannerGlow {
             0% { 
                 box-shadow: 
-                    0 0 25px var(--primary-glow),
-                    0 0 60px var(--primary-glow);
+                    0 0 25px rgba(168, 85, 247, 0.5),
+                    0 0 60px rgba(168, 85, 247, 0.2);
             }
             100% { 
                 box-shadow: 
-                    0 0 35px var(--primary),
-                    0 0 90px var(--primary-glow);
+                    0 0 35px rgba(168, 85, 247, 0.8),
+                    0 0 90px rgba(168, 85, 247, 0.4);
             }
         }
 
+        /* ===== Banner รูปที่ 2 (ก่อน Footer) ===== */
         .banner-box.bottom {
             margin-top: 25px;
             margin-bottom: 25px;
@@ -201,15 +201,14 @@
             align-items: center;
             gap: 6px;
             padding: 4px 12px;
-            background: var(--primary-glow);
-            border: 1px solid var(--primary);
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.35);
             border-radius: 20px;
             font-size: 12px;
             color: var(--primary-light);
             font-weight: 600;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
-            transition: all 0.5s ease;
         }
 
         .badge-status i {
@@ -230,7 +229,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            background: linear-gradient(180deg, #ffffff 30%, var(--primary-light) 100%);
+            background: linear-gradient(180deg, #ffffff 30%, #d8b4fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 25px var(--primary-glow);
@@ -242,7 +241,6 @@
             font-size: 13px;
             font-weight: 400;
             opacity: 0.85;
-            transition: color 0.5s ease;
         }
 
         .features-grid {
@@ -253,8 +251,8 @@
         }
 
         .feature-card {
-            background: var(--primary-glow);
-            border: 1px solid var(--primary);
+            background: rgba(168, 85, 247, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.18);
             border-radius: 10px;
             padding: 10px;
             text-align: center;
@@ -265,7 +263,6 @@
             justify-content: center;
             gap: 8px;
             line-height: 1.3;
-            transition: all 0.5s ease;
         }
 
         .feature-card i {
@@ -287,12 +284,10 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: color 0.5s ease;
         }
 
         label i {
             color: var(--primary);
-            transition: color 0.5s ease;
         }
 
         .counter-badge {
@@ -309,7 +304,7 @@
             margin-bottom: 18px;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--primary-glow);
+            border: 1px solid rgba(168, 85, 247, 0.2);
             transition: all 0.3s ease;
             background-color: var(--bg-input);
         }
@@ -333,7 +328,6 @@
             outline: none;
             user-select: text;
             display: block;
-            transition: color 0.5s ease;
         }
 
         textarea::placeholder {
@@ -350,7 +344,6 @@
         textarea::-webkit-scrollbar-thumb {
             background: var(--secondary);
             border-radius: 4px;
-            transition: background 0.5s ease;
         }
         textarea::-webkit-scrollbar-thumb:hover {
             background: var(--primary);
@@ -360,15 +353,15 @@
             position: relative;
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            border: 1px solid var(--primary);
+            background: linear-gradient(135deg, #4c1d95 0%, #a855f7 100%);
+            border: 1px solid var(--border-purple-bright);
             border-radius: 12px;
             color: #ffffff;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 20px var(--primary-glow);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
             margin-bottom: 18px;
             display: flex;
             align-items: center;
@@ -394,7 +387,8 @@
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px var(--primary);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.55);
+            background: linear-gradient(135deg, #5b21b6 0%, #b975ff 100%);
         }
 
         button:active {
@@ -409,15 +403,16 @@
 
         .copy-btn {
             flex: 2;
-            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, var(--secondary) 100%);
-            border: 1px solid var(--primary-glow);
+            background: linear-gradient(135deg, #1a0a2e 0%, #3b1361 100%);
+            border: 1px solid rgba(168, 85, 247, 0.4);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             margin-bottom: 0;
         }
 
         .copy-btn:hover {
-            background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, #26103f 0%, #6b21a8 100%);
             border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(107, 33, 168, 0.5);
         }
 
         .download-btn {
@@ -430,15 +425,16 @@
         }
 
         .download-btn:hover {
-            background: var(--primary-glow);
+            background: rgba(168, 85, 247, 0.15);
             border-color: var(--primary-light);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
         }
 
         .status-box {
             display: none;
             margin-bottom: 18px;
             background: rgba(15, 5, 25, 0.9);
-            border: 1px solid var(--primary);
+            border: 1px solid var(--border-purple);
             border-radius: 10px;
             padding: 12px 15px;
         }
@@ -478,98 +474,20 @@
         .progress-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, #a855f7, #e9d5ff);
             border-radius: 10px;
             transition: width 0.1s linear;
             box-shadow: 0 0 10px var(--primary);
         }
 
-        /* ===== Theme Picker (บนหัวข้อผู้สร้าง) ===== */
-        .theme-picker {
-            margin-top: 25px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--primary-glow);
-            border: 1px solid var(--primary);
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-
-        .theme-picker-title {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary-light);
-            margin-bottom: 12px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .theme-picker-title i {
-            color: var(--primary);
-        }
-
-        .theme-colors {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .theme-color {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-color:hover {
-            transform: scale(1.15);
-            box-shadow: 0 0 20px currentColor;
-        }
-
-        .theme-color.active {
-            border-color: #ffffff;
-            box-shadow: 0 0 25px currentColor;
-            transform: scale(1.15);
-        }
-
-        .theme-color.active::after {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #ffffff;
-            font-size: 14px;
-            text-shadow: 0 0 6px rgba(0,0,0,0.8);
-        }
-
-        /* ปุ่มสีแต่ละธีม */
-        .theme-color[data-theme="purple"] { background: linear-gradient(135deg, #4c1d95, #a855f7); color: #a855f7; }
-        .theme-color[data-theme="pink"]   { background: linear-gradient(135deg, #831843, #ec4899); color: #ec4899; }
-        .theme-color[data-theme="blue"]   { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: #3b82f6; }
-        .theme-color[data-theme="green"]  { background: linear-gradient(135deg, #065f46, #10b981); color: #10b981; }
-        .theme-color[data-theme="orange"] { background: linear-gradient(135deg, #9a3412, #f97316); color: #f97316; }
-        .theme-color[data-theme="red"]    { background: linear-gradient(135deg, #7f1d1d, #ef4444); color: #ef4444; }
-
         footer {
             margin-top: 25px;
             text-align: center;
             background: rgba(12, 4, 20, 0.6);
-            border: 1px solid var(--primary-glow);
+            border: 1px solid rgba(168, 85, 247, 0.18);
             border-radius: 14px;
             padding: 18px;
             position: relative;
-            transition: border-color 0.5s ease;
         }
 
         .footer-title {
@@ -594,13 +512,13 @@
             align-items: center;
             gap: 8px;
             padding: 6px 14px;
-            background: var(--primary-glow);
-            border: 1px solid var(--primary-glow);
+            background: rgba(168, 85, 247, 0.07);
+            border: 1px solid rgba(168, 85, 247, 0.22);
             border-radius: 8px;
             font-size: 13px;
             color: var(--text-main);
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-decoration: none;
         }
 
@@ -609,10 +527,10 @@
         }
 
         .social-badge.yt i { color: #ff4d4d; }
-        .social-badge.tt i { color: var(--primary-light); }
+        .social-badge.tt i { color: #d8b4fe; }
 
         .social-badge:hover {
-            background: var(--primary-glow);
+            background: rgba(168, 85, 247, 0.18);
             border-color: var(--primary);
             transform: translateY(-2px);
         }
@@ -711,10 +629,6 @@
             h1 {
                 font-size: 22px;
             }
-            .theme-color {
-                width: 38px;
-                height: 38px;
-            }
         }
     </style>
 </head>
@@ -729,6 +643,7 @@
 <div class="app-wrapper">
     <div class="container">
         
+        <!-- 🎨 Banner รูปที่ 1 (ด้านบน) -->
         <div class="banner-box">
             <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555511861619859587/file_00000000a708821186b76ee231776632.png?backend=b2&ex=6ac0cacf&is=6abf794f&hm=8a07d6b9811e742ba1b6ee9c0b39d0c19d82186e7ddbe61a47ec73fc589f5da7&" alt="Sunlight Hub Obfuscator Banner" onerror="this.parentElement.style.display='none'">
         </div>
@@ -803,23 +718,9 @@
             </button>
         </div>
 
+        <!-- 🎨 Banner รูปที่ 2 (ก่อน Footer) -->
         <div class="banner-box bottom">
             <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555514003487457371/home-hero-code-protection-v2.jpg?backend=b2&ex=6ac0ccce&is=6abf7b4e&hm=57ba1c3a4efe8d54d051bb1b882444e8b60b12f06809cfc19478fbfbd31debf7&" alt="Sunlight Hub Community" onerror="this.parentElement.style.display='none'">
-        </div>
-
-        <!-- 🎨 ตัวเลือกธีมสี (อยู่บนหัวข้อผู้สร้าง) -->
-        <div class="theme-picker">
-            <div class="theme-picker-title">
-                <i class="fa-solid fa-palette"></i> เปลี่ยนสีธีม
-            </div>
-            <div class="theme-colors">
-                <div class="theme-color active" data-theme="purple" title="ม่วง" onclick="setTheme('purple')"></div>
-                <div class="theme-color" data-theme="pink" title="ชมพู" onclick="setTheme('pink')"></div>
-                <div class="theme-color" data-theme="blue" title="ฟ้า" onclick="setTheme('blue')"></div>
-                <div class="theme-color" data-theme="green" title="เขียว" onclick="setTheme('green')"></div>
-                <div class="theme-color" data-theme="orange" title="ส้ม" onclick="setTheme('orange')"></div>
-                <div class="theme-color" data-theme="red" title="แดง" onclick="setTheme('red')"></div>
-            </div>
         </div>
 
         <footer>
@@ -843,104 +744,9 @@
 <div id="toastContainer"></div>
 
 <script>
-/* ===== ระบบเปลี่ยนธีมสี ===== */
-const themes = {
-    purple: {
-        bg: '#050208', card: 'rgba(20, 6, 32, 0.75)', input: 'rgba(10, 3, 18, 0.85)',
-        primary: '#a855f7', glow: 'rgba(168, 85, 247, 0.4)',
-        secondary: '#4c1d95', light: '#d8b4fe',
-        border: 'rgba(168, 85, 247, 0.25)', borderBright: 'rgba(168, 85, 247, 0.8)',
-        textSub: '#c9a5e8', textDim: '#6d5a85'
-    },
-    pink: {
-        bg: '#0a0208', card: 'rgba(32, 6, 20, 0.75)', input: 'rgba(18, 3, 12, 0.85)',
-        primary: '#ec4899', glow: 'rgba(236, 72, 153, 0.4)',
-        secondary: '#831843', light: '#f9a8d4',
-        border: 'rgba(236, 72, 153, 0.25)', borderBright: 'rgba(236, 72, 153, 0.8)',
-        textSub: '#f4a8cd', textDim: '#8a5570'
-    },
-    blue: {
-        bg: '#020510', card: 'rgba(6, 15, 40, 0.75)', input: 'rgba(3, 8, 25, 0.85)',
-        primary: '#3b82f6', glow: 'rgba(59, 130, 246, 0.4)',
-        secondary: '#1e3a8a', light: '#93c5fd',
-        border: 'rgba(59, 130, 246, 0.25)', borderBright: 'rgba(59, 130, 246, 0.8)',
-        textSub: '#a5c4e8', textDim: '#557085'
-    },
-    green: {
-        bg: '#020a06', card: 'rgba(6, 30, 20, 0.75)', input: 'rgba(3, 15, 10, 0.85)',
-        primary: '#10b981', glow: 'rgba(16, 185, 129, 0.4)',
-        secondary: '#065f46', light: '#6ee7b7',
-        border: 'rgba(16, 185, 129, 0.25)', borderBright: 'rgba(16, 185, 129, 0.8)',
-        textSub: '#a8e8d0', textDim: '#557a6d'
-    },
-    orange: {
-        bg: '#0a0502', card: 'rgba(32, 15, 6, 0.75)', input: 'rgba(18, 8, 3, 0.85)',
-        primary: '#f97316', glow: 'rgba(249, 115, 22, 0.4)',
-        secondary: '#9a3412', light: '#fdba74',
-        border: 'rgba(249, 115, 22, 0.25)', borderBright: 'rgba(249, 115, 22, 0.8)',
-        textSub: '#f0b890', textDim: '#855a45'
-    },
-    red: {
-        bg: '#0a0202', card: 'rgba(32, 6, 6, 0.75)', input: 'rgba(18, 3, 3, 0.85)',
-        primary: '#ef4444', glow: 'rgba(239, 68, 68, 0.4)',
-        secondary: '#7f1d1d', light: '#fca5a5',
-        border: 'rgba(239, 68, 68, 0.25)', borderBright: 'rgba(239, 68, 68, 0.8)',
-        textSub: '#f0a5a5', textDim: '#855555'
-    }
-};
-
-function setTheme(name) {
-    const t = themes[name];
-    if (!t) return;
-
-    const root = document.documentElement;
-    root.style.setProperty('--bg-main', t.bg);
-    root.style.setProperty('--bg-card', t.card);
-    root.style.setProperty('--bg-input', t.input);
-    root.style.setProperty('--primary', t.primary);
-    root.style.setProperty('--primary-glow', t.glow);
-    root.style.setProperty('--primary-hover', t.primary);
-    root.style.setProperty('--secondary', t.secondary);
-    root.style.setProperty('--primary-light', t.light);
-    root.style.setProperty('--accent-green', t.light);
-    root.style.setProperty('--accent-yellow', t.light);
-    root.style.setProperty('--border-purple', t.border);
-    root.style.setProperty('--border-purple-bright', t.borderBright);
-    root.style.setProperty('--text-sub', t.textSub);
-    root.style.setProperty('--text-dim', t.textDim);
-
-    // อัปเดตสี particle
-    particleColor = hexToRgb(t.primary);
-
-    // อัปเดตสถานะ active
-    document.querySelectorAll('.theme-color').forEach(el => {
-        el.classList.toggle('active', el.dataset.theme === name);
-    });
-
-    // บันทึกใน localStorage
-    localStorage.setItem('sunlight-theme', name);
-}
-
-function hexToRgb(hex) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : { r: 168, g: 85, b: 247 };
-}
-
-// โหลดธีมที่บันทึกไว้ตอนเปิดหน้า
-window.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('sunlight-theme') || 'purple';
-    setTheme(saved);
-});
-
-/* ===== Particle System ===== */
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
-let particleColor = { r: 168, g: 85, b: 247 };
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -967,7 +773,7 @@ class Particle {
         }
     }
     draw() {
-        ctx.fillStyle = `rgba(${particleColor.r}, ${particleColor.g}, ${particleColor.b}, ${this.opacity})`;
+        ctx.fillStyle = `rgba(168, 85, 247, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -983,7 +789,6 @@ function animateParticles() {
 }
 animateParticles();
 
-/* ===== Toast ===== */
 function showToast(message, type = 'default') {
     const container = document.getElementById('toastContainer');
     const toast = document.createElement('div');
