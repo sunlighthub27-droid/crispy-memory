@@ -120,7 +120,6 @@
             border-color: rgba(168, 85, 247, 0.45);
         }
 
-        /* ===== Banner ทั่วไป ===== */
         .banner-box {
             width: 100%;
             margin-bottom: 25px;
@@ -183,7 +182,6 @@
             }
         }
 
-        /* ===== Banner รูปที่ 2 (ก่อน Footer) ===== */
         .banner-box.bottom {
             margin-top: 25px;
             margin-bottom: 25px;
@@ -643,7 +641,6 @@
 <div class="app-wrapper">
     <div class="container">
         
-        <!-- 🎨 Banner รูปที่ 1 (ด้านบน) -->
         <div class="banner-box">
             <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555511861619859587/file_00000000a708821186b76ee231776632.png?backend=b2&ex=6ac0cacf&is=6abf794f&hm=8a07d6b9811e742ba1b6ee9c0b39d0c19d82186e7ddbe61a47ec73fc589f5da7&" alt="Sunlight Hub Obfuscator Banner" onerror="this.parentElement.style.display='none'">
         </div>
@@ -718,7 +715,6 @@
             </button>
         </div>
 
-        <!-- 🎨 Banner รูปที่ 2 (ก่อน Footer) -->
         <div class="banner-box bottom">
             <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555514003487457371/home-hero-code-protection-v2.jpg?backend=b2&ex=6ac0ccce&is=6abf7b4e&hm=57ba1c3a4efe8d54d051bb1b882444e8b60b12f06809cfc19478fbfbd31debf7&" alt="Sunlight Hub Community" onerror="this.parentElement.style.display='none'">
         </div>
@@ -810,13 +806,15 @@ function updateCounter(inputId, counterId) {
     document.getElementById(counterId).innerText = `${val.length} ตัวอักษร | ${lines} บรรทัด`;
 }
 
-function generateRandomVar(len) {
+/* ===== ระบบสร้างชื่อตัวแปรสับสน ===== */
+function randName(minLen = 8, maxLen = 14) {
     const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let res = '_0x' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    const len = Math.floor(Math.random() * (maxLen - minLen + 1)) + minLen;
+    let s = '_0x';
     for (let i = 0; i < len; i++) {
-        res += chars.charAt(Math.floor(Math.random() * chars.length));
+        s += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    return res;
+    return s;
 }
 
 function processLock() {
@@ -859,41 +857,74 @@ function processLock() {
     }, 100);
 }
 
+/* ===== Obfuscator ระดับสูงขึ้น =====
+   ขั้นตอน:
+   1. แปลงโค้ดเป็น UTF-8 bytes
+   2. XOR ทุก byte ด้วย key1 (1-255)
+   3. XOR ทุก byte ด้วย key2 (1-255) อีกชั้น
+   4. เพิ่ม noise (สุ่มบวกค่า) ต่อ byte
+   5. แปลงเป็น hex string
+   6. ฝังฟังก์ชัน decode ที่ทำงานย้อนกลับ
+*/
 function obfuscateLua(code) {
     const encoder = new TextEncoder();
     const bytes = encoder.encode(code);
-    const key = Math.floor(Math.random() * 50) + 1;
-    let hexStr = "";
 
+    const key1 = Math.floor(Math.random() * 254) + 1;
+    const key2 = Math.floor(Math.random() * 254) + 1;
+    const noiseArr = [];
+
+    let hexStr = "";
     for (let i = 0; i < bytes.length; i++) {
-        let val = (bytes[i] + key) % 256;
-        let hex = val.toString(16).padStart(2, '0');
-        hexStr += hex;
+        const noise = Math.floor(Math.random() * 255);
+        noiseArr.push(noise);
+        let val = bytes[i];
+        val = (val + key1) % 256;
+        val = (val + key2) % 256;
+        val = (val + noise) % 256;
+        hexStr += val.toString(16).padStart(2, '0');
     }
 
-    const v_hex = generateRandomVar(6);
-    const v_key = generateRandomVar(4);
-    const v_str = generateRandomVar(5);
-    const v_fn = generateRandomVar(5);
-    const v_err = generateRandomVar(4);
+    const noiseHex = noiseArr.map(n => n.toString(16).padStart(2, '0')).join('');
 
-    return `-- Sunlight Hub Obfuscator
--- YouTube: Manowmanaroi
--- TikTok: vods.touej
--- Discord: https://discord.gg/yUUz7jWa5
-local ${v_hex} = "${hexStr}"
-local ${v_key} = ${key}
-local ${v_str} = ${v_hex}:gsub("..", function(ch)
-    local v = tonumber(ch, 16) - ${v_key}
-    if v < 0 then v = v + 256 end
-    return string.char(v)
-end)
-local ${v_fn}, ${v_err} = (loadstring or load or (getfenv and getfenv().loadstring))(${v_str})
-if ${v_fn} then
-    pcall(setfenv, ${v_fn}, getfenv())
-    return ${v_fn}()
+    // สุ่มชื่อตัวแปร
+    const vA = randName(12, 18);
+    const vB = randName(12, 18);
+    const vC = randName(12, 18);
+    const vD = randName(12, 18);
+    const vE = randName(12, 18);
+    const vF = randName(12, 18);
+    const vG = randName(12, 18);
+    const vH = randName(12, 18);
+    const vI = randName(12, 18);
+    const vJ = randName(12, 18);
+    const vK = randName(12, 18);
+    const vL = randName(12, 18);
+
+    return `local ${vA}="${hexStr}"
+local ${vB}="${noiseHex}"
+local ${vC}=${key1}
+local ${vD}=${key2}
+local ${vE}=0
+local ${vF}=""
+for ${vG}=1,#${vA},2 do
+    ${vE}=${vE}+1
+    local ${vH}=tonumber(${vA}:sub(${vG},${vG}+1),16)
+    local ${vI}=tonumber(${vB}:sub(${vE}*2-1,${vE}*2),16)
+    local ${vJ}=${vH}-${vC}
+    if ${vJ}<0 then ${vJ}=${vJ}+256 end
+    ${vJ}=${vJ}-${vD}
+    if ${vJ}<0 then ${vJ}=${vJ}+256 end
+    ${vJ}=${vJ}-${vI}
+    if ${vJ}<0 then ${vJ}=${vJ}+256 end
+    ${vF}=${vF}..string.char(${vJ})
+end
+local ${vK},${vL}=(loadstring or load or (getfenv and getfenv().loadstring))(${vF})
+if ${vK} then
+    pcall(setfenv,${vK},getfenv())
+    return ${vK}()
 else
-    error(${v_err} or "Execution Error", 0)
+    error(${vL} or "Err",0)
 end`;
 }
 
