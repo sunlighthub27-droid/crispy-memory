@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunlight Hub Obfuscator</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -53,7 +51,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Animated Background Canvas */
         #bgCanvas {
             position: fixed;
             top: 0;
@@ -64,7 +61,6 @@
             pointer-events: none;
         }
 
-        /* Cyber Grid Glow Overlay */
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -79,7 +75,6 @@
             pointer-events: none;
         }
 
-        /* Ambient Glow Orbs */
         .orb {
             position: fixed;
             width: 450px;
@@ -91,23 +86,14 @@
             opacity: 0.4;
             animation: orbFloat 10s infinite alternate ease-in-out;
         }
-        .orb-1 {
-            top: -100px;
-            left: -100px;
-            background: var(--primary);
-        }
-        .orb-2 {
-            bottom: -100px;
-            right: -100px;
-            background: #4c1d95;
-        }
+        .orb-1 { top: -100px; left: -100px; background: var(--primary); }
+        .orb-2 { bottom: -100px; right: -100px; background: #4c1d95; }
 
         @keyframes orbFloat {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(40px, 30px) scale(1.1); }
         }
 
-        /* Main Glass Container */
         .app-wrapper {
             position: relative;
             z-index: 10;
@@ -134,7 +120,7 @@
             border-color: rgba(168, 85, 247, 0.45);
         }
 
-        /* ===== Banner ด้านบน ===== */
+        /* ===== Banner ทั่วไป ===== */
         .banner-box {
             width: 100%;
             margin-bottom: 25px;
@@ -160,7 +146,6 @@
             transform: scale(1.03);
         }
 
-        /* แสงวิ่งผ่าน Banner */
         .banner-box::before {
             content: '';
             position: absolute;
@@ -198,7 +183,13 @@
             }
         }
 
-        /* Header Styling */
+        /* ===== Banner รูปที่ 2 (ก่อน Footer) ===== */
+        .banner-box.bottom {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            animation-delay: 1.5s;
+        }
+
         .header-box {
             text-align: center;
             margin-bottom: 25px;
@@ -252,7 +243,6 @@
             opacity: 0.85;
         }
 
-        /* Feature Tags */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -278,7 +268,6 @@
             color: var(--primary);
         }
 
-        /* Labels & Info Row */
         .label-row {
             display: flex;
             justify-content: space-between;
@@ -308,7 +297,6 @@
             border-radius: 12px;
         }
 
-        /* Textarea Container Styling */
         .editor-wrapper {
             position: relative;
             margin-bottom: 18px;
@@ -345,7 +333,6 @@
             font-family: var(--font-main);
         }
 
-        /* Custom Scrollbar */
         textarea::-webkit-scrollbar {
             width: 8px;
         }
@@ -360,7 +347,6 @@
             background: var(--primary);
         }
 
-        /* Lock Button Styling */
         button {
             position: relative;
             width: 100%;
@@ -407,7 +393,6 @@
             transform: translateY(1px) scale(0.99);
         }
 
-        /* Copy & Action Buttons */
         .action-group {
             display: flex;
             gap: 10px;
@@ -443,7 +428,6 @@
             box-shadow: 0 4px 15px rgba(168, 85, 247, 0.2);
         }
 
-        /* Status & Progress Bar */
         .status-box {
             display: none;
             margin-bottom: 18px;
@@ -468,7 +452,6 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 0;
-            animation: none;
         }
 
         .status-percent {
@@ -495,7 +478,6 @@
             box-shadow: 0 0 10px var(--primary);
         }
 
-        /* Footer Section */
         footer {
             margin-top: 25px;
             text-align: center;
@@ -575,7 +557,6 @@
             color: #ffffff;
         }
 
-        /* Toast Alert Container */
         #toastContainer {
             position: fixed;
             bottom: 20px;
@@ -622,13 +603,16 @@
             to { transform: translateX(100%); opacity: 0; }
         }
 
-        /* Responsive Layout Adjustments */
         @media (max-width: 580px) {
             .container {
                 padding: 20px 15px;
             }
             .banner-box {
                 border-radius: 10px;
+                margin-bottom: 18px;
+            }
+            .banner-box.bottom {
+                margin-top: 18px;
                 margin-bottom: 18px;
             }
             .features-grid {
@@ -657,7 +641,7 @@
 <div class="app-wrapper">
     <div class="container">
         
-        <!-- ✅ Banner ด้านบนสุด (ใช้ลิงก์ Discord) -->
+        <!-- 🎨 Banner รูปที่ 1 (ด้านบน) -->
         <div class="banner-box">
             <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555511861619859587/file_00000000a708821186b76ee231776632.png?backend=b2&ex=6ac0cacf&is=6abf794f&hm=8a07d6b9811e742ba1b6ee9c0b39d0c19d82186e7ddbe61a47ec73fc589f5da7&" alt="Sunlight Hub Obfuscator Banner" onerror="this.parentElement.style.display='none'">
         </div>
@@ -732,6 +716,11 @@
             </button>
         </div>
 
+        <!-- 🎨 Banner รูปที่ 2 (ก่อน Footer) -->
+        <div class="banner-box bottom">
+            <img src="https://cdn.discordapp.com/attachments/1550755223688056863/1555514003487457371/home-hero-code-protection-v2.jpg?backend=b2&ex=6ac0ccce&is=6abf7b4e&hm=57ba1c3a4efe8d54d051bb1b882444e8b60b12f06809cfc19478fbfbd31debf7&" alt="Sunlight Hub Community" onerror="this.parentElement.style.display='none'">
+        </div>
+
         <footer>
             <div class="footer-title">ผู้สร้าง</div>
             <div class="social-links">
@@ -753,24 +742,19 @@
 <div id="toastContainer"></div>
 
 <script>
-// --- Canvas Particle Effect ---
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
-
 let particles = [];
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
-
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 class Particle {
-    constructor() {
-        this.reset();
-    }
+    constructor() { this.reset(); }
     reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
@@ -782,7 +766,6 @@ class Particle {
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.reset();
         }
@@ -795,47 +778,36 @@ class Particle {
     }
 }
 
-for (let i = 0; i < 50; i++) {
-    particles.push(new Particle());
-}
+for (let i = 0; i < 50; i++) particles.push(new Particle());
 
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
+    particles.forEach(p => { p.update(); p.draw(); });
     requestAnimationFrame(animateParticles);
 }
 animateParticles();
 
-// --- Toast Notification System ---
 function showToast(message, type = 'default') {
     const container = document.getElementById('toastContainer');
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
-    
     let icon = 'fa-circle-info';
     if (type === 'success') icon = 'fa-circle-check';
     if (type === 'warning') icon = 'fa-triangle-exclamation';
-
     toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
     container.appendChild(toast);
-
     setTimeout(() => {
         toast.style.animation = 'fadeOut 0.3s forwards';
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
 
-// --- Character Counter ---
 function updateCounter(inputId, counterId) {
     const val = document.getElementById(inputId).value;
     const lines = val ? val.split('\n').length : 0;
     document.getElementById(counterId).innerText = `${val.length} ตัวอักษร | ${lines} บรรทัด`;
 }
 
-// --- Main Obfuscator Script ---
 function generateRandomVar(len) {
     const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let res = '_0x' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
@@ -867,7 +839,6 @@ function processLock() {
     const interval = setInterval(() => {
         progress += Math.floor(Math.random() * 15) + 10;
         if (progress > 100) progress = 100;
-        
         progressBar.style.width = progress + '%';
         statusPercent.innerText = progress + '%';
 
@@ -877,7 +848,6 @@ function processLock() {
                 const obfuscated = obfuscateLua(input);
                 document.getElementById('outputScript').value = obfuscated;
                 updateCounter('outputScript', 'outputCounter');
-                
                 statusBox.style.display = 'none';
                 lockBtn.disabled = false;
                 lockBtn.style.opacity = '1';
@@ -890,7 +860,6 @@ function processLock() {
 function obfuscateLua(code) {
     const encoder = new TextEncoder();
     const bytes = encoder.encode(code);
-
     const key = Math.floor(Math.random() * 50) + 1;
     let hexStr = "";
 
@@ -932,7 +901,6 @@ function copyResult() {
         showToast('ยังไม่มีสคริปต์ที่โดนล็อกให้คัดลอก!', 'warning');
         return;
     }
-
     navigator.clipboard.writeText(textToCopy).then(() => {
         showToast('คัดลอก Script เรียบร้อยแล้ว!', 'success');
     }).catch(() => {
@@ -956,7 +924,6 @@ function downloadResult() {
         showToast('ยังไม่มีสคริปต์ให้ดาวน์โหลด!', 'warning');
         return;
     }
-
     const blob = new Blob([textToDownload], { type: "text/plain;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -968,4 +935,4 @@ function downloadResult() {
 </script>
 
 </body>
-    </html>
+</html>
